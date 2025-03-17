@@ -32,19 +32,16 @@ router.post("/add", verifyAdmin, async (req, res) => {
   }
 });
 
-// ✅ Delete Product (Admins Only)
+// ✅ Route: Delete a Product (Admins Only)
 router.delete("/delete/:id", verifyAdmin, async (req, res) => {
   try {
-    const productId = req.params.id;
-    const deletedProduct = await Product.findByIdAndDelete(productId);
-    if (!deletedProduct) {
-      return res.status(404).json({ message: "Product not found" });
-    }
-    res.json({ message: "Product deleted successfully" });
+    await Product.findByIdAndDelete(req.params.id);
+    res.json({ message: "❌ Product deleted successfully!" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
+
 
 // ✅ Get All Products (Anyone can access)
 router.get("/", async (req, res) => {
