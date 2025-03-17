@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const productRoutes = require("./routes/productRoutes");
-const authRoutes = require("./routes/authRoutes");  // <-- Import auth routes
-
+const authRoutes = require("./routes/authRoutes"); 
+const paymentRoutes = require("./routes/paymentRoutes");
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -22,7 +22,7 @@ mongoose.connect(mongoUrl)
 
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);  // <-- Use auth routes
-
+app.use("/api/payments", paymentRoutes);
 // Default route
 app.get("/", (req, res) => {
   res.send("E-commerce Backend is Running!");
