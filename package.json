@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 npm install express mongoose cors dotenv bcryptjs jsonwebtoken axios
+=======
+npm install express mongoose cors dotenv bcryptjs jsonwebtoken axios
+>>>>>>> 916abe7 (Initial commit for ecommerce backend)
